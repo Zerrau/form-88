@@ -48,10 +48,13 @@ try:
         '/html/body/div/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div[2]/div[2]/div[1]/div/div/input')
     date_of_issue.send_keys(date_now)
     date_of_issue.send_keys(Keys.ENTER)
-    browser.execute_script("window.scrollBy(0, 100);")
-    # asd
-
-
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div[4]/div[2]/div[2]/div[1]/label').click()
+    browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[2]').click()
+    # (2)
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[6]/div[1]/input').send_keys(
+        '11111111145')
 finally:
     time.sleep(5)
     browser.quit()
