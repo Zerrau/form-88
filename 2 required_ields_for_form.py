@@ -11,11 +11,6 @@ browser = webdriver.Chrome()
 browser.get(link)
 browser.implicitly_wait(5)
 
-
-class JavascriptExecutor(object):
-    pass
-
-
 try:
     # Логинимся
     login = browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[1]/input')
