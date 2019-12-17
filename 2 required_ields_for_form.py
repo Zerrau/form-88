@@ -49,6 +49,7 @@ try:
     date_of_issue.send_keys(date_now)
     date_of_issue.send_keys(Keys.ENTER)
     browser.execute_script("window.scrollBy(0, 100);")
+    # asd
 
 
 finally:
