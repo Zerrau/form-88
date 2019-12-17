@@ -24,10 +24,9 @@ try:
     #
     browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[1]/fieldset/div[4]/div/label').click()
-    time.sleep(0.5)
     sex = browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[1]/fieldset/div[4]/div/div/div/div/div[1]/div[2]/div/input')
-    sex.send_keys('Мужчина')
+    sex.send_keys('М')
     sex.send_keys(Keys.ENTER)
     browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[1]/fieldset/div[5]/div[1]/label').click()
