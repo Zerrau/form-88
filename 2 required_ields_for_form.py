@@ -50,6 +50,37 @@ try:
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[6]/div[1]/input').send_keys(
         '11111111145')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[9]/div[2]/div[5]/div[1]/textarea').send_keys(
+        'МВД СПБ')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[9]/div[2]/div[2]/div[1]/input').send_keys(
+        1234)
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[9]/div[2]/div[3]/div/input').send_keys(
+        '123456')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[9]/div[2]/div[4]/div/div[1]/div/input').send_keys(
+        date_now)
+    city1 = browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[5]/div[1]/div/input')
+    city1.send_keys('п')
+    time.sleep(1)
+    city1.send_keys(Keys.DOWN)
+    city1.send_keys(Keys.ENTER)
+
+    street1 = browser.find_element_by_xpath(
+        '//*[@id="root"]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[6]/div[1]/div/input')
+    street1.send_keys('п')
+    time.sleep(1)
+    street1.send_keys(Keys.DOWN)
+    street1.send_keys(Keys.ENTER)
+#   browser.find_element_by_xpath(
+#       '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[7]/div/input').send_keys('1')
+#   browser.find_element_by_xpath(
+#      '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[9]/div/input').send_keys(
+#     '111111')
+
 finally:
     time.sleep(5)
     browser.quit()
