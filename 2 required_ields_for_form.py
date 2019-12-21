@@ -153,6 +153,7 @@ try:
     time.sleep(0.5)
     member.send_keys(Keys.ENTER)
     browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[7]').click()
+    # (7)
 
 
 
