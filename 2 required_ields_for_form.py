@@ -2,14 +2,17 @@ from selenium import webdriver
 import time
 from selenium.webdriver.common.keys import Keys
 import datetime
+from selenium.webdriver.common.action_chains import ActionChains
 
-date_now = datetime.datetime.now()
-date_now = date_now.strftime("%d%m%Y")
+date = datetime.datetime.now()
+date_now = date.strftime("%d%m%Y")
+date_year = date.strftime("%Y")
 
 link = 'http://localhost:3000'
 browser = webdriver.Chrome()
 browser.get(link)
 browser.implicitly_wait(5)
+dbl_click = webdriver.ActionChains
 
 try:
     # Логинимся
@@ -24,6 +27,7 @@ try:
     browser.find_element_by_xpath(
         '//*[@id="root"]/div/div/div/div[2]/div/div[2]/div[1]/div[3]/div[1]/div/div[1]').click()
     browser.find_element_by_xpath('/html/body/div/div/div/div/div[3]/div/div[3]/div/div/button').click()
+
     # (1)
     browser.find_element_by_xpath(
         '/html/body/div/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div/div/label').click()
@@ -65,21 +69,92 @@ try:
     city1 = browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[5]/div[1]/div/input')
     city1.send_keys('п')
-    time.sleep(1)
+    time.sleep(0.5)
     city1.send_keys(Keys.DOWN)
     city1.send_keys(Keys.ENTER)
-
     street1 = browser.find_element_by_xpath(
         '//*[@id="root"]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[6]/div[1]/div/input')
     street1.send_keys('п')
-    time.sleep(1)
+    time.sleep(0.5)
     street1.send_keys(Keys.DOWN)
     street1.send_keys(Keys.ENTER)
-#   browser.find_element_by_xpath(
-#       '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[7]/div/input').send_keys('1')
-#   browser.find_element_by_xpath(
-#      '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[9]/div/input').send_keys(
-#     '111111')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[7]/div/input').send_keys('1')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[9]/div/input').send_keys(
+        '111111')
+    city2 = browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div[2]/div[4]/div[1]/div/input')
+    city2.send_keys('п')
+    time.sleep(0.5)
+    city2.send_keys(Keys.DOWN)
+    city2.send_keys(Keys.ENTER)
+    street2 = browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div[2]/div[5]/div/div/input')
+    street2.send_keys('п')
+    time.sleep(0.5)
+    street2.send_keys(Keys.DOWN)
+    street2.send_keys(Keys.ENTER)
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div[2]/div[6]/div/input').send_keys('1')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div[2]/div[8]/div/input').send_keys(
+        '111111')
+    browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[3]').click()
+    # (3)
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div/label').click()
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div/label').click()
+    browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[4]').click()
+    # (4)
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[1]/div/label').click()
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[7]/div/input').send_keys(
+        '111111')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div[14]/div/div[6]/div/input').send_keys(
+        '111111')
+    browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[5]').click()
+    # (5)
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[1]/div[2]/div[1]/input').send_keys(
+        date_year)
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[1]/textarea').send_keys('A')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[3]/div/textarea').send_keys('A')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[7]/div[2]/div/textarea').send_keys(
+        'A')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[8]/div[2]/div/textarea').send_keys(
+        'A')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div[2]/div[2]/button').click()
+    mkb = browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div[2]/div[2]/div[2]/div/div/input')
+    mkb.send_keys('D00.0')
+    mkb.send_keys(Keys.ENTER)
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div[2]/div[2]/div[2]/div/div/div[2]/button').click()
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div[1]/div/label').click()
+    chairman = browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div[1]/div/div/div/div/div[1]/div[2]/div/input')
+    chairman.click()
+    chairman.send_keys(Keys.ENTER)
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div[2]/button').click()
+    member = browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div[2]/div/div/div/div/div/div/div[1]/div[2]/div/input')
+    member.send_keys('Т')
+    time.sleep(0.5)
+    member.send_keys(Keys.ENTER)
+    browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[7]').click()
+
+
 
 finally:
     time.sleep(5)
