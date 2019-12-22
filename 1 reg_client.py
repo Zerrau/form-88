@@ -6,6 +6,7 @@ link = "http://localhost:3000"
 browser = webdriver.Chrome()
 browser.get(link)
 browser.implicitly_wait(5)
+
 try:
     # Логинимся
     login = browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[1]/input')
@@ -33,15 +34,18 @@ try:
     browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[1]/fieldset/div[5]/div[1]/div[1]/div/input').send_keys(
         '25071999')
-    bdate = browser.find_element_by_xpath('/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[2]/button')
-    bdate.send_keys(Keys.ENTER)
+    b_date = browser.find_element_by_xpath('/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[2]/button')
+    b_date.send_keys(Keys.ENTER)
+    patient_successfully = browser.find_element_by_xpath('/html/body/div/div/div/div/div[1]/div')
+
+    assert patient_successfully.text == 'Данные пациента успешно сохранены'
+
     # Ищем созданного пациента
     browser.find_element_by_xpath(
         '//*[@id="root"]/div/div/div/div[2]/div/div[2]/div[1]/div[2]/div/div[1]/input').send_keys('Фамилия')
     browser.find_element_by_xpath(
         '//*[@id="root"]/div/div/div/div[2]/div/div[2]/div[1]/div[3]/div[1]/div/div[1]').click()
     browser.find_element_by_xpath('/html/body/div/div/div/div/div[3]/div/div[3]/div/div/button').click()
-
 
 finally:
     time.sleep(5)
