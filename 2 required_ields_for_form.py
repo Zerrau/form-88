@@ -1,16 +1,26 @@
-from selenium import webdriver
-import time
-from selenium.webdriver.common.keys import Keys
 import datetime
-from selenium.webdriver.common.action_chains import ActionChains
+import os
+import time
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
 
 date = datetime.datetime.now()
 date_now = date.strftime("%d%m%Y")
 date_year = date.strftime("%Y")
+# Добавляем расширение
 
-link = 'http://localhost:3000'
-browser = webdriver.Chrome()
-browser.get(link)
+executable_path = "chromedriver.exe"
+os.environ["webdriver.chrome.driver"] = executable_path
+
+chrome_options = Options()
+chrome_options.add_extension('iifchhfnnmpdbibifmljnfjhpififfog.zip')  # Расширение CryptoPro
+
+browser = webdriver.Chrome(executable_path=executable_path, chrome_options=chrome_options)
+browser.get("http://localhost:3000")
+
+#######################################
 browser.implicitly_wait(5)
 dbl_click = webdriver.ActionChains
 
@@ -154,7 +164,7 @@ try:
     member.send_keys(Keys.ENTER)
     browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[7]').click()
     # (7)
-
+    time.sleep(105)
 
 
 finally:
