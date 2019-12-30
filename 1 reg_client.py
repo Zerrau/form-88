@@ -1,5 +1,6 @@
-from selenium import webdriver
 import time
+
+from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 link = "http://localhost:3000"
@@ -9,19 +10,14 @@ browser.implicitly_wait(5)
 
 try:
     # Логинимся
-    login = browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[1]/input')
-    login.send_keys('user')
-    passwrd = browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[2]/input')
-    passwrd.send_keys('user')
-    into = browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[3]/button').click()
+    browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[1]/input').send_keys('user')
+    browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[2]/input').send_keys('user')
+    browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[3]/button').click()
     # Создаем пациента
-    add_patient = browser.find_element_by_xpath('//*[@id="root"]/div/div/div/div[2]/div/div[1]/div[2]/button').click()
-    add_lastname = browser.find_element_by_xpath('//*[@id="lastName"]')
-    add_lastname.send_keys('Фамилия')
-    add_firsname = browser.find_element_by_xpath('//*[@id="firstName"]')
-    add_firsname.send_keys('Имя')
-    add_partname = browser.find_element_by_xpath('//*[@id="secondName"]')
-    add_partname.send_keys('Отчество')
+    browser.find_element_by_xpath('//*[@id="root"]/div/div/div/div[2]/div/div[1]/div[2]/button').click()
+    browser.find_element_by_xpath('//*[@id="lastName"]').send_keys('Фамилия')
+    browser.find_element_by_xpath('//*[@id="firstName"]').send_keys('Имя')
+    browser.find_element_by_xpath('//*[@id="secondName"]').send_keys('Отчество')
     #
     browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[1]/fieldset/div[4]/div/label').click()
