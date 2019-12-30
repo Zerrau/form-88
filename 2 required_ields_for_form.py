@@ -15,7 +15,7 @@ executable_path = "chromedriver.exe"
 os.environ["webdriver.chrome.driver"] = executable_path
 
 chrome_options = Options()
-chrome_options.add_extension('iifchhfnnmpdbibifmljnfjhpififfog.zip')  # Расширение CryptoPro
+chrome_options.add_extension('CryptoPro.zip')  # Расширение CryptoPro
 
 browser = webdriver.Chrome(executable_path=executable_path, chrome_options=chrome_options)
 browser.get("http://localhost:3000")
@@ -26,11 +26,9 @@ dbl_click = webdriver.ActionChains
 
 try:
     # Логинимся
-    login = browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[1]/input')
-    login.send_keys('user')
-    passwrd = browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[2]/input')
-    passwrd.send_keys('user')
-    into = browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[3]/button').click()
+    browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[1]/input').send_keys('user')
+    browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[2]/input').send_keys('user')
+    browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[3]/button').click()
     # Ищем созданного пациента
     browser.find_element_by_xpath(
         '//*[@id="root"]/div/div/div/div[2]/div/div[2]/div[1]/div[2]/div/div[1]/input').send_keys('Фамилия')
@@ -164,7 +162,7 @@ try:
     member.send_keys(Keys.ENTER)
     browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[7]').click()
     # (7)
-    
+
 
 finally:
     time.sleep(5)
