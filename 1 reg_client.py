@@ -34,7 +34,7 @@ try:
     b_date.send_keys(Keys.ENTER)
     patient_successfully = browser.find_element_by_xpath('/html/body/div/div/div/div/div[1]/div')
 
-    assert patient_successfully.text == 'Данные пациента успешно сохранены'
+    assert patient_successfully.text == 'Данные пациента успешно сохранены', 'Patient not registered'
 
     # Ищем созданного пациента
     browser.find_element_by_xpath(
