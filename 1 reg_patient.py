@@ -42,6 +42,7 @@ try:
     browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[2]/div/div[2]/div[1]/div[3]/div[1]/div/div[1]').click()
     browser.find_element_by_xpath('/html/body/div/div/div/div/div[3]/div/div[2]/button').click()
+
     # Проверяем на сохранение
     lastName = browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[1]/fieldset/div[1]/div/input').get_attribute('value')
