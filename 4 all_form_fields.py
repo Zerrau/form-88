@@ -83,7 +83,7 @@ try:
     browser.find_element_by_xpath(
         '/html/body/div/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div[3]/div[2]/div/label').click()
 
-    """browser.find_element_by_xpath(
+    browser.find_element_by_xpath(
         '/html/body/div/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div[4]/div[2]/div[1]/div/label').click()
     browser.find_element_by_xpath(
         '/html/body/div/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div[4]/div[2]/div[3]/div/label').click()
@@ -109,7 +109,7 @@ try:
         '/html/body/div/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div[4]/div[2]/div[12]/div/label').click()
     browser.find_element_by_xpath(
         '/html/body/div/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div[4]/div[2]/div[13]/div/label').click()
-        browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[2]').click()
+    browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[2]').click()
     # (2)
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[6]/div[1]/input').send_keys(
@@ -255,7 +255,7 @@ try:
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div/div/div[2]/div[8]/div/input').send_keys(
         '1177746126040')
-        browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[4]').click()
+    browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[4]').click()
     # (4)
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[2]/div/label').click()
@@ -391,7 +391,6 @@ try:
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div[14]/div/div[6]/div/input').send_keys(
         '111111')
-        """
     browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[5]').click()
 
     # (5)
@@ -573,13 +572,18 @@ try:
     member.send_keys('Т')
     time.sleep(0.5)
     member.send_keys(Keys.ENTER)
+
     browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[6]').click()
 
     # (6)
-    browser.find_element_by_xpath(
-        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div/div[2]/div/label').click()
-# browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[7]').click()
-# (7)"""
+    a = browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div/div[2]/div/input')
+    current_dir = os.path.abspath(os.path.dirname(__file__))
+    file_path = os.path.join(current_dir, 'CryptoPro.zip')
+    a.send_keys(file_path)
+
+    browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[7]').click()
+    # (7)
 
 finally:
     time.sleep(5)
