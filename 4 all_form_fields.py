@@ -123,7 +123,7 @@ try:
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[9]/div[2]/div[3]/div/input').send_keys(
         '123456')
-    browser.find_element_by_xpath(
+    date_of_issue = browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[9]/div[2]/div[4]/div/div[1]/div/input').send_keys(
         date_now)
     browser.find_element_by_xpath(
@@ -150,7 +150,7 @@ try:
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[7]/div/input').send_keys('1')
     browser.find_element_by_xpath(
-        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[8]/div/input').send_keys('')
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[8]/div/input').send_keys('1')
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[9]/div/input').send_keys(
         '111111')
@@ -200,9 +200,10 @@ try:
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div/div[2]/div[5]/div[2]/div[3]/div/input').send_keys(
         '123456')
-    browser.find_element_by_xpath(
-        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div/div[2]/div[5]/div[2]/div[4]/div/div/div/input').send_keys(
-        date_now)
+    date_of_issue3 = browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div/div[2]/div[5]/div[2]/div[4]/div/div/div/input')
+    date_of_issue3.send_keys(date_now)
+    date_of_issue3.send_keys(Keys.ENTER)
 
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div/div[2]/div[6]/div[2]/div[5]/div[1]/textarea').send_keys(
@@ -213,16 +214,48 @@ try:
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div/div[2]/div[6]/div[2]/div[3]/div/input').send_keys(
         '123456')
-    browser.find_element_by_xpath(
-        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div/div[2]/div[6]/div[2]/div[4]/div/div/div/input').send_keys(
-        date_now)
+    date_of_issue3_2 = browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div/div[2]/div[6]/div[2]/div[4]/div/div/div/input')
+    date_of_issue3_2.send_keys(date_now)
+    date_of_issue3_2.send_keys(Keys.ENTER)
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div/div[2]/div[7]/div/input').send_keys(
         '9653214780')
     browser.find_element_by_xpath(
-        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[9]/div/input').send_keys(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div/div[2]/div[8]/div/input').send_keys(
         'test@mail.ru')
-    browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[4]').click()
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div/div/div[2]/div[1]/div/input').send_keys(
+        'A')
+    subject = browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div/div/div[2]/div[2]/div[1]/div/input')
+    subject.send_keys('Санкт')
+    subject.send_keys(Keys.DOWN)
+    subject.send_keys(Keys.ENTER)
+
+    city_3 = browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div/div/div[2]/div[4]/div[1]/div/input')
+    city_3.send_keys('п')
+    time.sleep(0.5)
+    city_3.send_keys(Keys.DOWN)
+    city_3.send_keys(Keys.ENTER)
+
+    street_3 = browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div/div/div[2]/div[5]/div/div/input')
+    street_3.send_keys('п')
+    time.sleep(0.5)
+    street_3.send_keys(Keys.DOWN)
+    street_3.send_keys(Keys.ENTER)
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div/div/div[2]/div[6]/div/input').send_keys(
+        '1')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div/div/div[2]/div[7]/div/input').send_keys(
+        '111111')
+    browser.find_element_by_xpath(
+        '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div/div/div[2]/div[8]/div/input').send_keys(
+        '1177746126040')
+    #  browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[4]').click()
     """# (4)
     browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[1]/div[2]/div[1]/div/label').click()
