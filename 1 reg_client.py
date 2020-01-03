@@ -49,9 +49,9 @@ try:
     firstName = browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[1]/fieldset/div[2]/div/input').get_attribute('value')
     assert firstName == 'Имя', 'FirstName does not match'
-    PatrName = browser.find_element_by_xpath(
+    patrName = browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[1]/fieldset/div[3]/div/input').get_attribute('value')
-    assert PatrName == 'Отчество', 'PatrName does not match'
+    assert patrName == 'Отчество', 'PatrName does not match'
     sex = browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[1]/fieldset/div[4]/div/div/div/div/div[1]/div[1]')
     assert sex.text == 'Мужчина', 'Sex does not match'
@@ -60,6 +60,7 @@ try:
         'value')
     assert birthDate == '25.07.1999', 'birthDate does not match'
     browser.find_element_by_xpath('/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[2]/button').click()
+
     assert patient_successfully.text == 'Данные пациента успешно сохранены', 'Patient not registered'
 
 finally:
