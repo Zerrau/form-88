@@ -5,6 +5,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+from pywinauto.application import Application
 
 date = datetime.datetime.now()
 date_now = date.strftime("%d%m%Y")
@@ -185,6 +186,11 @@ try:
     member.send_keys(Keys.ENTER)
     browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[7]').click()
     # (7)
+    # Взаимодействие с всплывающим окном c помощью pywinauto для расширения CryptoPro
+    app = Application().Connect(path="nmcades.exe")
+    window = app.Dialog
+    button = window[u'&Yes']
+    button.Click()
 
 
 finally:
