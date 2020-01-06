@@ -13,6 +13,7 @@ try:
     browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[1]/input').send_keys('user')
     browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[2]/input').send_keys('user')
     browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[3]/button').click()
+
     # Создаем пациента
     browser.find_element_by_xpath('//*[@id="root"]/div/div/div/div[2]/div/div[1]/div[2]/button').click()
     browser.find_element_by_xpath('//*[@id="lastName"]').send_keys('Фамилия')
@@ -39,6 +40,17 @@ try:
     browser.find_element_by_xpath(
         '//*[@id="root"]/div/div/div/div[2]/div/div[2]/div[1]/div[2]/div/div[1]/input').send_keys(
         'Фамилия Имя Отчество')
+
+    firstDate = browser.find_element_by_xpath(
+        '/html/body/div/div/div/div/div[2]/div/div[2]/div[1]/div[2]/div/div[2]/div/div[1]/div[2]/div/input')
+    firstDate.send_keys('25.07.1999')
+    firstDate.send_keys(Keys.ENTER)
+
+    endDate = browser.find_element_by_xpath(
+        '/html/body/div/div/div/div/div[2]/div/div[2]/div[1]/div[2]/div/div[2]/div/div[2]/div[2]/div/input')
+    endDate.send_keys('25.07.1999')
+    endDate.send_keys(Keys.ENTER)
+
     browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[2]/div/div[2]/div[1]/div[3]/div[1]/div/div[1]').click()
     browser.find_element_by_xpath('/html/body/div/div/div/div/div[3]/div/div[2]/button').click()

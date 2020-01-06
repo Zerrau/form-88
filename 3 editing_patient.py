@@ -87,6 +87,18 @@ try:
     browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[2]/div/div[2]/div[1]/div[2]/div/div[1]/input').send_keys(
         'Фамилия 2 Имя 2 Отчество 2')
+
+    firstDate = browser.find_element_by_xpath(
+        '/html/body/div/div/div/div/div[2]/div/div[2]/div[1]/div[2]/div/div[2]/div/div[1]/div[2]/div/input')
+    firstDate.send_keys('12.12.2012')
+    firstDate.send_keys(Keys.ENTER)
+
+    endDate = browser.find_element_by_xpath(
+        '/html/body/div/div/div/div/div[2]/div/div[2]/div[1]/div[2]/div/div[2]/div/div[2]/div[2]/div/input')
+    endDate.send_keys('12.12.2012')
+    endDate.send_keys(Keys.ENTER)
+
+    # Блок проверки на правильное сохранение данных
     browser.find_element_by_xpath('/html/body/div/div/div/div/div[3]/div/div[2]/button').click()
     lastName = browser.find_element_by_xpath(
         '/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[1]/fieldset/div[1]/div/input').get_attribute('value')

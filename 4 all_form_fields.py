@@ -31,7 +31,7 @@ try:
     browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[2]/input').send_keys('user')
     browser.find_element_by_xpath('//*[@id="root"]/div/div/div[2]/form/div[3]/button').click()
     # Создаем пациента
-    """browser.find_element_by_xpath('//*[@id="root"]/div/div/div/div[2]/div/div[1]/div[2]/button').click()
+    browser.find_element_by_xpath('//*[@id="root"]/div/div/div/div[2]/div/div[1]/div[2]/button').click()
     browser.find_element_by_xpath('//*[@id="lastName"]').send_keys('Фамилия')
     browser.find_element_by_xpath('//*[@id="firstName"]').send_keys('Имя')
     browser.find_element_by_xpath('//*[@id="secondName"]').send_keys('Отчество')
@@ -50,14 +50,26 @@ try:
     b_date.send_keys(Keys.ENTER)
     patient_successfully = browser.find_element_by_xpath('/html/body/div/div/div/div/div[1]/div')
 
-    assert patient_successfully.text == 'Данные пациента успешно сохранены', 'Patient not registered'"""
+    assert patient_successfully.text == 'Данные пациента успешно сохранены', 'Patient not registered'
 
     # Ищем созданного пациента
     browser.find_element_by_xpath(
         '//*[@id="root"]/div/div/div/div[2]/div/div[2]/div[1]/div[2]/div/div[1]/input').send_keys(
         'Фамилия Имя Отчество')
+
+    firstDate = browser.find_element_by_xpath(
+        '/html/body/div/div/div/div/div[2]/div/div[2]/div[1]/div[2]/div/div[2]/div/div[1]/div[2]/div/input')
+    firstDate.send_keys('25.07.1999')
+    firstDate.send_keys(Keys.ENTER)
+
+    endDate = browser.find_element_by_xpath(
+        '/html/body/div/div/div/div/div[2]/div/div[2]/div[1]/div[2]/div/div[2]/div/div[2]/div[2]/div/input')
+    endDate.send_keys('25.07.1999')
+    endDate.send_keys(Keys.ENTER)
+
     browser.find_element_by_xpath(
         '//*[@id="root"]/div/div/div/div[2]/div/div[2]/div[1]/div[3]/div[1]/div/div[1]').click()
+
     browser.find_element_by_xpath('/html/body/div/div/div/div/div[3]/div/div[3]/div/div/button').click()
 
     # (1)
@@ -231,6 +243,7 @@ try:
     subject_3 = browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[4]/div/div/div[2]/div[2]/div[1]/div/input')
     subject_3.send_keys('Санкт')
+    time.sleep(0.5)
     subject_3.send_keys(Keys.DOWN)
     subject_3.send_keys(Keys.ENTER)
 
@@ -310,18 +323,21 @@ try:
     Subject_4_1 = browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[2]/div/div/input')
     Subject_4_1.send_keys('Санкт')
+    time.sleep(0.5)
     Subject_4_1.send_keys(Keys.DOWN)
     Subject_4_1.send_keys(Keys.ENTER)
 
     citi_4_1 = browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[4]/div/div/input')
     citi_4_1.send_keys('п')
+    time.sleep(0.5)
     citi_4_1.send_keys(Keys.DOWN)
     citi_4_1.send_keys(Keys.ENTER)
 
     street_4_1 = browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[2]/div[2]/div[5]/div/div/input')
     street_4_1.send_keys('п')
+    time.sleep(0.5)
     street_4_1.send_keys(Keys.DOWN)
     street_4_1.send_keys(Keys.ENTER)
 
@@ -370,18 +386,21 @@ try:
     Subject_4_2 = browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div[14]/div/div[1]/div/div/input')
     Subject_4_2.send_keys('Санкт')
+    time.sleep(0.5)
     Subject_4_2.send_keys(Keys.DOWN)
     Subject_4_2.send_keys(Keys.ENTER)
 
     citi_4_2 = browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div[14]/div/div[3]/div/div/input')
     citi_4_2.send_keys('п')
+    time.sleep(0.5)
     citi_4_2.send_keys(Keys.DOWN)
     citi_4_2.send_keys(Keys.ENTER)
 
     street_4_2 = browser.find_element_by_xpath(
         '/html/body/div[1]/div/div/div/form/div/div[2]/div/fieldset/div/div[3]/div/div[14]/div/div[4]/div/div/input')
     street_4_2.send_keys('п')
+    time.sleep(0.5)
     street_4_2.send_keys(Keys.DOWN)
     street_4_2.send_keys(Keys.ENTER)
 
@@ -584,6 +603,7 @@ try:
     a.send_keys(file_path)
 
     browser.find_element_by_xpath('/html/body/div[1]/div/div/div/form/div/div[1]/ul/li[7]').click()
+
     # (7)
     # Взаимодействие с всплывающим окном c помощью pywinauto для расширения CryptoPro
     app = Application().Connect(path="nmcades.exe")
@@ -591,6 +611,14 @@ try:
     button = window[u'&Yes']
     button.Click()
 
+    # Сохранить черновик
+    browser.find_element_by_xpath('/html/body/div/div/div/div/form/div/div[3]/button').click()
+    confirm = browser.switch_to.alert
+    confirm.accept()
+    saveSketch = browser.find_element_by_xpath('/html/body/div/div/div/div/div/div')
+    saveSketch = saveSketch.text
+    assert saveSketch == 'Черновик сохранен', 'Черновик не сохранен'
+
 finally:
-    time.sleep(5000)
+    time.sleep(5)
     browser.quit()
