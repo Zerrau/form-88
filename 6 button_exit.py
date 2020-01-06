@@ -1,7 +1,5 @@
-import time
-
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+
 
 link = "http://localhost:3000"
 browser = webdriver.Chrome()
