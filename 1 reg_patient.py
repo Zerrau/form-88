@@ -75,7 +75,5 @@ try:
     browser.find_element_by_xpath('/html/body/div/div/div/div/div[4]/div/div[2]/div/form/div[2]/button').click()
 
     assert patient_successfully.text == 'Данные пациента успешно сохранены', 'Patient not registered'
-
 finally:
-    time.sleep(5)
     browser.quit()

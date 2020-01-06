@@ -618,7 +618,5 @@ try:
     saveSketch = browser.find_element_by_xpath('/html/body/div/div/div/div/div/div')
     saveSketch = saveSketch.text
     assert saveSketch == 'Черновик сохранен', 'Черновик не сохранен'
-
 finally:
-    time.sleep(5)
     browser.quit()

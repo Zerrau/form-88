@@ -53,7 +53,5 @@ try:
     page_0.send_keys(Keys.ENTER)
     patient = browser.find_element_by_xpath('/html/body/div/div/div/div/div[2]/div/div[1]/div[1]').text
     assert patient == 'Список пациентов', 'Error first page'
-
 finally:
-    time.sleep(5)
     browser.quit()

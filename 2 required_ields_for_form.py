@@ -203,8 +203,5 @@ try:
     window = app.Dialog
     button = window[u'&Yes']
     button.Click()
-
-
 finally:
-    time.sleep(5)
     browser.quit()
