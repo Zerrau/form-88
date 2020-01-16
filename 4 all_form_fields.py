@@ -1,3 +1,4 @@
+# use Python 3.7.4
 import datetime
 import os
 import time
@@ -19,7 +20,7 @@ chrome_options = Options()
 chrome_options.add_extension('CryptoPro.zip')  # Расширение CryptoPro
 
 browser = webdriver.Chrome(executable_path=executable_path, chrome_options=chrome_options)
-browser.get("http://localhost:3000")
+browser.get("http://form88.vistamed.ru/")
 
 #######################################
 browser.implicitly_wait(5)
@@ -619,4 +620,5 @@ try:
     saveSketch = saveSketch.text
     assert saveSketch == 'Черновик сохранен', 'Черновик не сохранен'
 finally:
+    time.sleep(1)
     browser.quit()

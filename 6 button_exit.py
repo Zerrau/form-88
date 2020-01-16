@@ -1,7 +1,8 @@
 from selenium import webdriver
+import time
 
 
-link = "http://localhost:3000"
+link = "http://form88.vistamed.ru/"
 browser = webdriver.Chrome()
 browser.get(link)
 browser.implicitly_wait(5)
@@ -24,4 +25,5 @@ try:
     userName = browser.find_element_by_xpath('/html/body/div/div/nav/div[2]/div').text
     assert userName == 'User User', 'Login failed'
 finally:
+    time.sleep(1)
     browser.quit()

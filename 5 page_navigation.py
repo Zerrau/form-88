@@ -3,7 +3,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-link = "http://localhost:3000"
+link = "http://form88.vistamed.ru/"
 browser = webdriver.Chrome()
 browser.get(link)
 browser.implicitly_wait(5)
@@ -54,4 +54,5 @@ try:
     patient = browser.find_element_by_xpath('/html/body/div/div/div/div/div[2]/div/div[1]/div[1]').text
     assert patient == 'Список пациентов', 'Error first page'
 finally:
+    time.sleep(1)
     browser.quit()

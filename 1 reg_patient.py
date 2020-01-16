@@ -1,7 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import time
 
-link = "http://localhost:3000"
+link = "http://form88.vistamed.ru/"
 browser = webdriver.Chrome()
 browser.get(link)
 browser.implicitly_wait(5)
@@ -74,4 +75,5 @@ try:
 
     assert patient_successfully.text == 'Данные пациента успешно сохранены', 'Patient not registered'
 finally:
+    time.sleep(1)
     browser.quit()
